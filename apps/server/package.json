@@ -1,7 +1,8 @@
 {
   "type": "module",
   "scripts": {
-    "compile": "tsc",
+    "clean": "rm -rf dist node_modules",
+    "compile": "npm run clean && tsc",
     "dev": "npm run compile && node ./dist/index.js"
   },
   "name": "server",

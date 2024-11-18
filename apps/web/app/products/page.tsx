@@ -1,4 +1,4 @@
-import { ProductItem } from "../../components/ProductItem";
+import { ProductItem } from "../../components/ProductItem/ProductItem";
 import client from "../../lib/apolloClient";
 import { gql } from "@apollo/client";
 import { Product } from "../../types/product";
@@ -10,6 +10,7 @@ const FETCH_PRODUCTS = gql`
       name
       description
       price
+      productUrl
     }
   }
 `;
