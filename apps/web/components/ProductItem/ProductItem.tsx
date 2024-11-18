@@ -33,6 +33,10 @@ export const ProductItem = ({ product }: ProductItemProps) => {
       console.error("Failed to delete product:", error);
     }
   };
+  const [imageError, setImageError] = useState(false);
+
+  const placeholderUrl =
+    "https://via.placeholder.com/300x200?text=Product+Image+Not+Available";
 
   if (isDeleted) {
     return null; // Remove the item from the UI
@@ -42,10 +46,14 @@ export const ProductItem = ({ product }: ProductItemProps) => {
     <li className={styles.productItem}>
       <div className={styles.productImageWrapper}>
         <Image
-          src={product.productUrl || ""}
+          src={
+            imageError ? placeholderUrl : product.productUrl || placeholderUrl
+          }
           alt={product.name}
-          width={300} // Adjust as needed
-          height={200} // Adjust as needed
+          width={300}
+          height={200}
+          onLoadingComplete={() => setImageError(false)} // Reset on successful load
+          onError={() => setImageError(true)} // Fallback to placeholder on error
         />
       </div>
       <div className={styles.productDetails}>

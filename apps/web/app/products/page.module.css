@@ -1,0 +1,25 @@
+/* ProductList.module.css */
+.productList {
+  display: grid;
+  grid-template-columns: 1fr; /* Default for mobile */
+  gap: 16px;
+  padding: 16px;
+  margin: 0 auto;
+  list-style: none;
+}
+
+@media (min-width: 1024px) {
+  .productList {
+    grid-template-columns: repeat(2, 1fr); /* 2 products per row on tablets */
+  }
+}
+
+.productListItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.productListWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
